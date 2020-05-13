@@ -26,8 +26,6 @@ h2{
    border: 1px solid;
    width: var(--ancho);
    height: var(--alto);
-   /* background-image: url(/image/fondo1.gif); */
-   /* background-image: url("/image/modalfondo.gif"); */
    background-image: url(/image/bart.jpeg);
    background-repeat: no-repeat;
    background-size: cover;
