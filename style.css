@@ -26,12 +26,12 @@ h2{
    border: 1px solid;
    width: var(--ancho);
    height: var(--alto);
-   background-image: url(image/bart.jpeg);
+   background-image: url(./image/bart.jpeg);
    background-repeat: no-repeat;
    background-size: cover;
    left: 50%;
    transform: translateX(-50%);
-   cursor: url(image/pistola.png), default;
+   cursor: url(./image/pistola.png), default;
 }
 
 #areajuego input[type=checkbox]{
@@ -75,10 +75,10 @@ h2{
    display: block;
    width: 80px;
    height: 100px;
-   background-image: url(image/icon.png);
+   background-image: url(./image/icon.png);
    border-radius: 50px;
    margin-top: 20px;
-   cursor: url(image/pistola.png), default;
+   cursor: url(./image/pistola.png), default;
 }
 
 #areajuego input:checked + label {
