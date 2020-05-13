@@ -1,0 +1,169 @@
+/* accedo al pseudo-elemento root  que es el que nos permite acceder al documento completo  los estilos que se apliquen en este pseudoelemento se van a aplicar a todo el dcto html*/
+.container-first{
+   /* background-image: url(/image/fondo1.gif); */
+   background-color: black;
+   border: 10px solid yellow;
+   border-radius: 100px;
+}
+
+:root{
+/*lo que hago es crearme 2 variables, ya que en css lo podemos hacer */
+--ancho: 800px;
+--alto:650px;
+--tiempo: 25s;
+counter-reset: puntaje;
+}
+
+h2{
+   text-align: center;
+   font-family: 'Indie Flower', cursive;
+   font-size: 30px;
+   color: red;
+}
+
+#areajuego{
+   position: relative;
+   border: 1px solid;
+   width: var(--ancho);
+   height: var(--alto);
+   /* background-image: url(/image/fondo1.gif); */
+   /* background-image: url("/image/modalfondo.gif"); */
+   background-image: url(/image/bart.jpeg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   left: 50%;
+   transform: translateX(-50%);
+   cursor: url("image/pistola.png"), default;
+}
+
+#areajuego input[type=checkbox]{
+   visibility: hidden;
+   float: left;
+  
+}
+
+#areajuego::after{
+   content: "tu puntaje: " counter(puntaje);
+   position: absolute;
+   top: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   font-family: 'Indie Flower', cursive;
+   color: yellow;
+   font-size: xx-large;
+}
+#areajuego input:checked{
+   counter-increment: puntaje;
+   
+}
+
+#areajuego label::after {
+   content: "    ";
+   display: block;
+   position: absolute;
+   background-image: url("/image/explosion.png");
+   width: 105px;
+   height: 105px;
+   visibility: hidden;
+   
+}
+#areajuego input:checked + label::after{
+   visibility: visible;
+   animation: explotar .5s linear forwards;
+}
+
+#areajuego label {
+   position: relative;
+   display: block;
+   width: 80px;
+   height: 100px;
+   background-image: url("/image/icon.png");
+   border-radius: 50px;
+   margin-top: 20px;
+   cursor: url("image/pistola.png"), default;
+}
+
+#areajuego input:checked + label {
+   visibility: hidden;
+}
+
+#loader{
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   border: 1px solid;
+   width: var(--ancho);
+   height: 30px;
+}
+
+#modal{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.8);
+   z-index: 200;
+   font-family: 'Indie Flower', cursive;
+   color: white;
+   text-align: center;
+   visibility: hidden;
+   animation: findejuego .5s linear var(--tiempo) forwards;
+}
+
+#modal a{
+   text-decoration: none;
+   font-family: fantasy;
+   font-size: 20px;
+   font-weight: bold;
+   background-color: red;
+   padding: 10px;
+   border-radius: 30px;
+   color: white;
+}
+
+#loader div{
+   height: 100%;
+   width: 1px;
+   background-color: yellow;
+   border-radius: 30px;
+   animation: cargar var(--tiempo) linear forwards;
+}
+@keyframes explotar {
+   from{
+      visibility: visible;
+      opacity: 1;
+   }
+   to{
+      visibility: hidden;
+      opacity: 0;
+   }
+}
+
+@keyframes cargar{
+   from{
+      width: 1px;
+   }
+   to{
+      width: 100%;
+   }
+}
+
+@keyframes findejuego{
+   from{
+      visibility: hidden;
+   }
+   to{
+      visibility: visible;
+   }
+}
+
+@keyframes mover{
+   0%{
+      left: 0px;
+   }
+   50%{
+      left: 700px;
+   }
+   100%{
+      left: 0%;
+   }
+}
